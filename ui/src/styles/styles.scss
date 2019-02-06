@@ -27,6 +27,13 @@ $adorsys-blue: #054f72;
 
   .container {
     margin-bottom: 10%;
+    width: 57%;
+    border-width: 1px;
+    border-style: outset;
+    -webkit-box-shadow: 10px 10px 10px -8px rgba(143, 140, 143, 1);
+    -moz-box-shadow: 10px 10px 10px -8px rgba(143, 140, 143, 1);
+    box-shadow: 10px 10px 10px -8px rgba(143, 140, 143, 1);
+    padding-bottom: 1%;
     p {
       display: block;
       text-align: justify;
@@ -45,47 +52,27 @@ $adorsys-blue: #054f72;
       margin-top: 3%;
     }
 
-    section {
-      margin-top: 3%;
-      border-top: 0.5px solid $light-grey;
-
-      .image-spacing {
-        margin-top: 50px;
-        margin-bottom: 50px;
-      }
-      div {
-        padding-top: 4%;
-        padding-bottom: 4%;
-      }
+    img {
+      width: 75%;
     }
 
-    &--big {
-      width: 57%;
-      border-width: 1px;
-      border-style: outset;
-      -webkit-box-shadow: 10px 10px 10px -8px rgba(143, 140, 143, 1);
-      -moz-box-shadow: 10px 10px 10px -8px rgba(143, 140, 143, 1);
-      box-shadow: 10px 10px 10px -8px rgba(143, 140, 143, 1);
-      padding-bottom: 1%;
+    h1 {
+      display: block;
+      text-align: center;
+      color: $dark-grey;
+      font-size: 32px;
+      justify-content: center;
+      align-items: center;
+      padding: 2%;
+    }
 
-      .description {
-        &__title {
-          display: block;
-          text-align: center;
-          color: $dark-grey;
-          font-size: 32px;
-          justify-content: center;
-          align-items: center;
-          padding: 2%;
-        }
-
-        &__text {
-          display: block;
-          text-align: justify;
-          font-size: 20px;
-          padding-bottom: 3%;
-          font-weight: 200;
-        }
+    .description {
+      &__text {
+        display: block;
+        text-align: justify;
+        font-size: 20px;
+        padding-bottom: 3%;
+        font-weight: 200;
       }
     }
 

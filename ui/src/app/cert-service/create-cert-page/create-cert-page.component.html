@@ -1,10 +1,10 @@
 <div class="page">
   <sb-header></sb-header>
-  <div class="container container--big">
+  <div class="container">
     <h1 class="description description__title">Certificate Service</h1>
     <section>
       <div class="description__text">
-        <p>
+        <markdown ngPreserveWhitespaces>
           We issue Qualified Website Authentication Certificates (QWAC) to
           Payment Service Providers (PSP) in order to use services offered at
           the Access-to-Account (XS2A) interface of the adorsys PSD2
@@ -16,7 +16,7 @@
           cryptographic key pair signed by the adorsys Sample Trust Service
           Provider. The Public Key which is also referred to a QWAC must be used
           for authentication purposes at XS2A.
-        </p>
+        </markdown>
       </div>
     </section>
     <form #certForm="ngForm" (ngSubmit)="createAndDownloadCert()">
