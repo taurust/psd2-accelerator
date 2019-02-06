@@ -15,11 +15,13 @@ import static de.adorsys.psd2.sandbox.portal.testdata.TransactionStatus.Rejected
 import de.adorsys.psd2.sandbox.portal.testdata.domain.Account;
 import de.adorsys.psd2.sandbox.portal.testdata.domain.Amount;
 import de.adorsys.psd2.sandbox.portal.testdata.domain.Balance;
+import de.adorsys.psd2.sandbox.portal.testdata.domain.BalanceType;
 import de.adorsys.psd2.sandbox.portal.testdata.domain.TestPsu;
 import de.adorsys.psd2.sandbox.portal.testdata.domain.Transaction;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Currency;
 import java.util.HashMap;
@@ -266,8 +268,9 @@ public class TestDataService {
         EUR,
         "Current Account",
         CashAccountType.CACC,
-        new Balance(new Amount(EUR, BigDecimal.valueOf(1500))),
-        new Balance(new Amount(EUR, BigDecimal.valueOf(1500))),
+        Arrays.asList(
+            new Balance(new Amount(EUR, BigDecimal.valueOf(1500)), BalanceType.AVAILABLE),
+            new Balance(new Amount(EUR, BigDecimal.valueOf(1500)), BalanceType.CLOSING_BOOKED)),
         giroMap
     );
 
@@ -348,8 +351,9 @@ public class TestDataService {
         EUR,
         "Savings",
         CashAccountType.SVGS,
-        new Balance(new Amount(EUR, BigDecimal.valueOf(2300))),
-        new Balance(new Amount(EUR, BigDecimal.valueOf(2300))),
+        Arrays.asList(
+            new Balance(new Amount(EUR, BigDecimal.valueOf(2300)), BalanceType.AVAILABLE),
+            new Balance(new Amount(EUR, BigDecimal.valueOf(2300)), BalanceType.CLOSING_BOOKED)),
         savingsMap
     );
 
@@ -364,8 +368,9 @@ public class TestDataService {
         EUR,
         "Current",
         CashAccountType.CACC,
-        new Balance(new Amount(EUR, BigDecimal.valueOf(0))),
-        new Balance(new Amount(EUR, BigDecimal.valueOf(0))),
+        Arrays.asList(
+            new Balance(new Amount(EUR, BigDecimal.valueOf(0)), BalanceType.AVAILABLE),
+            new Balance(new Amount(EUR, BigDecimal.valueOf(0)), BalanceType.CLOSING_BOOKED)),
         null
     );
 
@@ -396,8 +401,9 @@ public class TestDataService {
         EUR,
         "Cash Trading",
         CashAccountType.TRAS,
-        new Balance(new Amount(EUR, BigDecimal.valueOf(-1148.00))),
-        new Balance(new Amount(EUR, BigDecimal.valueOf(0))),
+        Arrays.asList(
+            new Balance(new Amount(EUR, BigDecimal.valueOf(-1148.00)), BalanceType.AVAILABLE),
+            new Balance(new Amount(EUR, BigDecimal.valueOf(0)), BalanceType.CLOSING_BOOKED)),
         negativeBookedBalanceMap
     );
 
@@ -428,8 +434,9 @@ public class TestDataService {
         EUR,
         "Current",
         CashAccountType.CACC,
-        new Balance(new Amount(EUR, BigDecimal.valueOf(503.12))),
-        new Balance(new Amount(EUR, BigDecimal.valueOf(439.70))),
+        Arrays.asList(
+            new Balance(new Amount(EUR, BigDecimal.valueOf(503.12)), BalanceType.AVAILABLE),
+            new Balance(new Amount(EUR, BigDecimal.valueOf(439.70)), BalanceType.CLOSING_BOOKED)),
         lowerAvailableBalanceMap
     );
 
@@ -460,8 +467,9 @@ public class TestDataService {
         USD,
         "Current",
         CashAccountType.CACC,
-        new Balance(new Amount(USD, BigDecimal.valueOf(9281.45))),
-        new Balance(new Amount(USD, BigDecimal.valueOf(9281.45))),
+        Arrays.asList(
+            new Balance(new Amount(USD, BigDecimal.valueOf(9281.45)), BalanceType.AVAILABLE),
+            new Balance(new Amount(USD, BigDecimal.valueOf(9281.45)), BalanceType.CLOSING_BOOKED)),
         giroUsdMap
     );
 
@@ -720,8 +728,9 @@ public class TestDataService {
         EUR,
         "Current Account",
         CashAccountType.CACC,
-        new Balance(new Amount(EUR, bookedAmount)),
-        new Balance(new Amount(EUR, availableAmount)),
+        Arrays.asList(
+            new Balance(new Amount(EUR, bookedAmount), BalanceType.AVAILABLE),
+            new Balance(new Amount(EUR, availableAmount), BalanceType.CLOSING_BOOKED)),
         transactions
     );
 
